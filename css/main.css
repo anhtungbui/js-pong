@@ -4,41 +4,51 @@
   box-sizing: border-box;
 }
 
-.container {
+#container {
   position: relative;
   width: 80%;
   height: 600px;
-  background-color: black;
+  background-color: rgb(13, 16, 172);
   text-align: center;
-  font-size: 70px;
-  margin-left: 10%;
+  margin: auto;
 }
 
-.score {
+#score {
+  font-size: 40px;
   color: white;
 }
-.paddle1 {
+#paddle1 {
   position: relative;
   left: 20px;
-  height: 90px;
-  width: 15px;
+  height: 140px;
+  width: 30px;
+  border-radius: 50%;
   background-color: white;
 }
 
-.paddle2 {
+#paddle2 {
   position: absolute;
   right: 20px;
-  height: 90px;
-  width: 15px;
+  height: 140px;
+  width: 30px;
+  border-radius: 50%;
   background-color: white;
 }
 
-.ball {
+#ball {
   width: 20px;
   height: 20px;
   border-radius: 50px;
   background-color: white;
   position: relative;
   top: 100px;
-  left: 200px;
+  left: 400px;
+}
+
+#net {
+  border-left: 5px dotted white;
+  height: 450px;
+  position: fixed;
+  left: 50%;
+  top: 90px;
 }
