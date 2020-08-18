@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 80%;
+  height: 600px;
+  background-color: black;
+  text-align: center;
+  font-size: 70px;
+  margin-left: 10%;
+}
+
+.score {
+  color: white;
+}
+.paddle1 {
+  position: relative;
+  left: 20px;
+  height: 90px;
+  width: 15px;
+  background-color: white;
+}
+
+.paddle2 {
+  position: absolute;
+  right: 20px;
+  height: 90px;
+  width: 15px;
+  background-color: white;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: white;
+  position: relative;
+  top: 100px;
+  left: 200px;
+}
