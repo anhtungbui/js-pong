@@ -1,0 +1,60 @@
+.container{
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background-color: tomato;
+    margin: 100px 300px;
+    text-align: center;
+
+}
+
+
+/* #ball{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    
+} */
+#point{
+    font-size: 50px;
+    color: blue;
+    font-style: italic;
+    
+}
+
+#paddle1{
+    position: absolute;
+    top: 40%;
+    transform: translate(-50%);
+    left: 30px;
+    height: 150px;
+    width: 40px;
+    background-color: black;
+}
+
+
+
+#paddle2{
+    position: absolute;
+    top: 10%;
+    transform: translate(+50%);
+    right: 30px;
+    height: 150px;
+    width: 40px;
+    background-color: black;
+}
+
+#ball{
+    position: absolute;
+    /* bottom: auto; */
+    height: 20px;
+    width: 20px;
+    background-color: yellow;
+    margin: 200px ;
+    border-radius: 5px;
+    
+}
