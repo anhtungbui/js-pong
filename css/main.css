@@ -18,11 +18,10 @@
   color: white;
 }
 #paddle1 {
-  position: relative;
+  position: absolute;
   left: 20px;
   height: 140px;
   width: 30px;
-  border-radius: 50%;
   background-color: white;
 }
 
@@ -31,7 +30,6 @@
   right: 20px;
   height: 140px;
   width: 30px;
-  border-radius: 50%;
   background-color: white;
 }
 
@@ -40,10 +38,17 @@
   height: 20px;
   border-radius: 50px;
   background-color: white;
-  position: relative;
-  top: 100px;
-  left: 400px;
+  position: absolute;
+  top: 300px;
+  left: 500px;
 }
+
+/* position: absolute;
+        top:    0px;
+        width:  100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: red; */
 
 #net {
   border-left: 5px dotted white;
@@ -51,4 +56,11 @@
   position: fixed;
   left: 50%;
   top: 90px;
+}
+
+#playerA {
+  font-size: 20px;
+}
+#playerB {
+  font-size: 20px;
 }
