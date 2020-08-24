@@ -101,7 +101,7 @@ let scoreB = 0;
 
 let playerAscore = document.getElementById("paddle1");
 function scoreForA() {
-  if (scoreA < 5) {
+  if (scoreA < 20) {
     scoreA++;
 
     Player1.innerText = scoreA;
@@ -112,14 +112,15 @@ function scoreForA() {
 
 let playerBscore = document.getElementById("paddle2");
 function scoreForB() {
-  if (scoreB < 5) {
+  if (scoreB < 20) {
     scoreB++;
     Player2.innerText = scoreB;
   } else {
   }
   resetBall();
 }
-//---------------ball  verticle movement---------------------------------
+
+//---------------ball  movement---------------------------------
 
 const ball = container.querySelector("#ball");
 
@@ -130,14 +131,28 @@ let movementY = 5;
 let movementX = 5;
 
 function move() {
-  y += movementY;
   if (y + 100 >= 700 || y <= 0) {
     movementY *= -1;
   }
-  x += movementX;
   if (x + 100 >= 1120) scoreForB();
   if (x <= 0) scoreForA();
 
+  paddleGlobal.forEach((p) => {
+    const collides = ballCollidesWithPaddle(
+      p.offsetLeft,
+      p.offsetTop,
+      p.offsetWidth,
+      p.offsetHeight
+    );
+
+    if (collides) {
+      if (p === paddle) movementX = Math.abs(movementX);
+      else movementX = Math.abs(movementX) * -1;
+    }
+  });
+
+  y += movementY;
+  x += movementX;
   ball.style.top = `${y}px`;
   ball.style.left = `${x}px`;
 }
@@ -149,7 +164,7 @@ function resetBall() {
   x = container.offsetWidth / 2;
   y = container.offsetHeight / 2;
 
-  if (scoreA === 5 || scoreB === 5) {
+  if (scoreA === 20 || scoreB === 20) {
     movementX = 0;
     movementY = 0;
   } else {
@@ -157,3 +172,16 @@ function resetBall() {
     movementX = (3 + Math.random() * 3) * (Math.random() > 0.5 ? 1 : -1);
   }
 }
+
+// --------collision-------------------------------------
+
+function ballCollidesWithPaddle(left, top, width, height) {
+  return (
+    x > left - 20 &&
+    x < left + width && // right
+    y > top - 20 &&
+    y < top + height // bottom
+  );
+}
+
+let paddleGlobal = [paddle, paddle2];
