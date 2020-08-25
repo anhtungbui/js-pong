@@ -103,7 +103,7 @@ let playerAscore = document.getElementById("paddle1");
 function scoreForB() {
   if (scoreA < 5) {
     scoreA++;
-
+    ding.play()
     Player1.innerText = scoreA;
   } else {
   }
@@ -114,6 +114,7 @@ let playerBscore = document.getElementById("paddle2");
 function scoreForA() {
   if (scoreB < 5) {
     scoreB++;
+    ding.play()
     Player2.innerText = scoreB;
   } else {
   }
@@ -147,11 +148,11 @@ function move() {
 
     if (collides) {
       if (p === paddle) {
-        audio.play();
+        pop.play();
         movementX = Math.abs(movementX);
       } else {
         movementX = Math.abs(movementX) * -1;
-        audio.play();
+        pop.play();
       }
     }
   });
@@ -168,7 +169,7 @@ setInterval(move, 1000 / 60);
 function resetBall() {
   x = container.offsetWidth / 2;
   y = container.offsetHeight / 2;
-
+  
   if (scoreA === 5 || scoreB === 5) {
     movementX = 0;
     movementY = 0;
@@ -193,8 +194,16 @@ let paddleGlobal = [paddle, paddle2];
 
 //-----------sound effect---------------------------------------
 
-var playSound = function () {
-  audio.play();
-};
+// var playSound = function () {
+  //   audio.play();
+  // };
+  
+  
+  // var playSound = dodio(/audio/ding.wav");cument.getElementById("audio");
+  let pop  = new Audio("/audio/pop.wav");
+  let ding = new Audio("/audio/ding.wav");
 
-var playSound = document.getElementById("audio");
+
+
+
+
