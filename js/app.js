@@ -150,7 +150,6 @@ function move() {
     );
 
     if (collides) {
-      pop.pause();
       pop.play();
       if (p === paddle) {
         movementX = Math.abs(movementX);
@@ -172,7 +171,6 @@ setInterval(move, 1000 / 60);
 function resetBall() {
   x = container.offsetWidth / 2;
   y = container.offsetHeight / 2;
-
   if (scoreA === 5 || scoreB === 5) {
     movementX = 0;
     movementY = 0;
