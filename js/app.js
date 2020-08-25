@@ -101,7 +101,7 @@ let scoreB = 0;
 
 let playerAscore = document.getElementById("paddle1");
 function scoreForB() {
-  if (scoreA < 20) {
+  if (scoreA < 5) {
     scoreA++;
 
     Player1.innerText = scoreA;
@@ -112,7 +112,7 @@ function scoreForB() {
 
 let playerBscore = document.getElementById("paddle2");
 function scoreForA() {
-  if (scoreB < 20) {
+  if (scoreB < 5) {
     scoreB++;
     Player2.innerText = scoreB;
   } else {
@@ -146,8 +146,13 @@ function move() {
     );
 
     if (collides) {
-      if (p === paddle) movementX = Math.abs(movementX);
-      else movementX = Math.abs(movementX) * -1;
+      if (p === paddle) {
+        audio.play();
+        movementX = Math.abs(movementX);
+      } else {
+        movementX = Math.abs(movementX) * -1;
+        audio.play();
+      }
     }
   });
 
@@ -164,7 +169,7 @@ function resetBall() {
   x = container.offsetWidth / 2;
   y = container.offsetHeight / 2;
 
-  if (scoreA === 20 || scoreB === 20) {
+  if (scoreA === 5 || scoreB === 5) {
     movementX = 0;
     movementY = 0;
   } else {
@@ -185,3 +190,11 @@ function ballCollidesWithPaddle(left, top, width, height) {
 }
 
 let paddleGlobal = [paddle, paddle2];
+
+//-----------sound effect---------------------------------------
+
+var playSound = function () {
+  audio.play();
+};
+
+var playSound = document.getElementById("audio");
