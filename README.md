@@ -6,8 +6,8 @@ The classic Pong game built with vanilla JS 🏓
 https://anhtungbui.github.io/js-pong/
 
 # Contributors
-Nisha Shukla
-Daniel Djohar
-Rasel Hasel
-Anh Tung Bui
-& especially Mr. Sebastian Glaser
++ Nisha Shukla
++ Daniel Djohar
++ Rasel Hasel
++ Anh Tung Bui
++ & especially Mr. Sebastian Glaser
