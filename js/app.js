@@ -195,11 +195,5 @@ let paddleGlobal = [paddle, paddle2];
 
 //-----------sound effect---------------------------------------
 
-// var playSound = function () {
-//   audio.play();
-// };
-
-// var playSound = dodio(/audio/ding.wav");cument.getElementById("audio");
-
 let pop = document.getElementById("pop");
 let ding = document.getElementById("ding");
