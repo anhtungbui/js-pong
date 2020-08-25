@@ -4,20 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classic Pong Game</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:600"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
+    <div id="game-intro">
+      <h1 class="game-title">PONG Remastered</h1>
+      <p class="game-tribute">1972 - 2020</p>
+      <button id="start-btn">Click Here To Start</button>
+    </div>
+
     <main id="container">
       <span id="score">SCORE</span><br />
-
-      <button id="playerA">Player A</button>
-      <button id="playerB">Player B</button>
+      <button id="playerA">0</button>
+      <button id="playerB">0</button>
       <div id="paddle1"></div>
       <div id="paddle2"></div>
       <div id="ball"></div>
-      <div id="net"></div>
     </main>
-
+    <div id="extra">
+      <p class="game-instruction">Player 1: Press W and S</p>
+      <p class="game-instruction">Player 2: Press Up and Down</p>
+      <p class="game-finished-msg">Player 1 WON The Game!</p>
+      <p class="game-finished-msg">Player 2 WON The Game!</p>
+    </div>
+    <audio src="/audio/bgm.mp3" audio id="bgm"></audio>
     <audio src="/audio/pop.wav" audio id="pop"></audio>
     <audio src="/audio/ding1.mp3" audio id="ding"></audio>
     <audio src="/audio/yeahhh.mp3" audio id="yeah"></audio>
