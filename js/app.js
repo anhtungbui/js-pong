@@ -101,9 +101,10 @@ let scoreB = 0;
 
 let playerAscore = document.getElementById("paddle1");
 function scoreForB() {
-  if (scoreA < 20) {
+  if (scoreA < 5) {
     scoreA++;
 
+    ding.play();
     Player1.innerText = scoreA;
   } else {
   }
@@ -112,8 +113,10 @@ function scoreForB() {
 
 let playerBscore = document.getElementById("paddle2");
 function scoreForA() {
-  if (scoreB < 20) {
+  if (scoreB < 5) {
     scoreB++;
+
+    ding.play();
     Player2.innerText = scoreB;
   } else {
   }
@@ -147,8 +150,13 @@ function move() {
     );
 
     if (collides) {
-      if (p === paddle) movementX = Math.abs(movementX);
-      else movementX = Math.abs(movementX) * -1;
+      pop.pause();
+      pop.play();
+      if (p === paddle) {
+        movementX = Math.abs(movementX);
+      } else {
+        movementX = Math.abs(movementX) * -1;
+      }
     }
   });
 
@@ -165,7 +173,7 @@ function resetBall() {
   x = container.offsetWidth / 2;
   y = container.offsetHeight / 2;
 
-  if (scoreA === 20 || scoreB === 20) {
+  if (scoreA === 5 || scoreB === 5) {
     movementX = 0;
     movementY = 0;
   } else {
@@ -186,3 +194,14 @@ function ballCollidesWithPaddle(left, top, width, height) {
 }
 
 let paddleGlobal = [paddle, paddle2];
+
+//-----------sound effect---------------------------------------
+
+// var playSound = function () {
+//   audio.play();
+// };
+
+// var playSound = dodio(/audio/ding.wav");cument.getElementById("audio");
+
+let pop = document.getElementById("pop");
+let ding = document.getElementById("ding");
