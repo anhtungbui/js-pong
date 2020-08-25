@@ -74,6 +74,8 @@ setInterval(simulate2, 1000 / 60);
 const Player1 = document.querySelector("#playerA");
 const Player2 = document.querySelector("#playerB");
 
+let ding = document.getElementById("ding");
+
 let scoreA = 0;
 let scoreB = 0;
 
@@ -82,6 +84,7 @@ function scoreForB() {
   if (scoreA < 5) {
     scoreA++;
 
+    //------sound effect with paddles and boundaries-----------------
     ding.play();
     Player1.innerText = scoreA;
   } else {
@@ -94,6 +97,7 @@ function scoreForA() {
   if (scoreB < 5) {
     scoreB++;
 
+    //------sound effect with paddles and boundaries-----------------
     ding.play();
     Player2.innerText = scoreB;
   } else {
@@ -105,18 +109,33 @@ function scoreForA() {
 
 const ball = container.querySelector("#ball");
 
+let paddleGlobal = [paddle, paddle2];
+
+let pop = document.getElementById("pop");
+
 let x = 500;
 let y = 300;
 
 let movementY = 5;
 let movementX = 5;
 
+// --------collision-------------------------------------
+
+function ballCollidesWithPaddle(left, top, width, height) {
+  return (
+    x > left - 20 &&
+    x < left + width && // right
+    y > top - 20 &&
+    y < top + height // bottom
+  );
+}
+
 function move() {
-  if (y + 100 >= 700 || y <= 0) {
+  if (y >= container.offsetHeight || y <= 0) {
     movementY *= -1;
   }
 
-  if (x + 100 >= 1120) scoreForB();
+  if (x >= container.offsetWidth) scoreForB();
   if (x <= 0) scoreForA();
 
   paddleGlobal.forEach((p) => {
@@ -128,6 +147,7 @@ function move() {
     );
 
     if (collides) {
+      //------sound effect with paddles and boundaries-----------------
       pop.play();
       if (p === paddle) {
         movementX = Math.abs(movementX);
@@ -146,32 +166,20 @@ setInterval(move, 1000 / 60);
 
 //-------------------------reset function----------
 
+let win = document.getElementById("yeah");
+
 function resetBall() {
   x = container.offsetWidth / 2;
   y = container.offsetHeight / 2;
+
   if (scoreA === 5 || scoreB === 5) {
     movementX = 0;
     movementY = 0;
+    win.play();
   } else {
     movementY = (3 + Math.random() * 3) * (Math.random() > 0.5 ? 1 : -1);
     movementX = (3 + Math.random() * 3) * (Math.random() > 0.5 ? 1 : -1);
   }
 }
 
-// --------collision-------------------------------------
-
-function ballCollidesWithPaddle(left, top, width, height) {
-  return (
-    x > left - 20 &&
-    x < left + width && // right
-    y > top - 20 &&
-    y < top + height // bottom
-  );
-}
-
-let paddleGlobal = [paddle, paddle2];
-
-//-----------sound effect---------------------------------------
-
-let pop = document.getElementById("pop");
-let ding = document.getElementById("ding");
+//----------------------------------------------
