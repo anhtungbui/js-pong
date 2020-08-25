@@ -2,7 +2,12 @@
 
 The classic Pong game built with vanilla JS 🏓
 
-hi, this is nisha, i got the updated files.
+# Live Demo
+https://anhtungbui.github.io/js-pong/
 
-hi this is Daniel , hmm i dnt like this :D
-hi this is rasel
+# Contributors
+Nisha Shukla
+Daniel Djohar
+Rasel Hasel
+Anh Tung Bui
+& especially Mr. Sebastian Glaser
