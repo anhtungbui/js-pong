@@ -100,7 +100,7 @@ let scoreA = 0;
 let scoreB = 0;
 
 let playerAscore = document.getElementById("paddle1");
-function scoreForA() {
+function scoreForB() {
   if (scoreA < 20) {
     scoreA++;
 
@@ -111,7 +111,7 @@ function scoreForA() {
 }
 
 let playerBscore = document.getElementById("paddle2");
-function scoreForB() {
+function scoreForA() {
   if (scoreB < 20) {
     scoreB++;
     Player2.innerText = scoreB;
