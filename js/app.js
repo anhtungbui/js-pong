@@ -39,16 +39,16 @@ let direction2 = 0;
 document.onkeydown = (event) => {
   console.log("keydown", event.code);
   switch (event.code) {
-    case "KeyS":
+    case "ArrowDown":
       direction2 = 1;
       break;
-    case "KeyW":
+    case "ArrowUp":
       direction2 = -1;
       break;
-    case "ArrowDown":
+    case "KeyS":
       direction = 1;
       break;
-    case "ArrowUp":
+    case "KeyW":
       direction = -1;
       break;
   }
@@ -57,16 +57,16 @@ document.onkeydown = (event) => {
 document.onkeyup = (event) => {
   console.log("keyup", event.code);
   switch (event.code) {
-    case "KeyS":
+    case "ArrowDown":
       if (direction2 == 1) direction2 = 0;
       break;
-    case "KeyW":
-      if (direction2 == -1) direction2 = 0;
-      break;
-    case "ArrowDown":
+      case "ArrowUp":
+        if (direction2 == -1) direction2 = 0;
+        break;
+      case "KeyS":
       if (direction == 1) direction = 0;
       break;
-    case "ArrowUp":
+    case "KeyW":
       if (direction == -1) direction = 0;
       break;
   }
