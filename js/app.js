@@ -5,31 +5,7 @@ const paddle = document.querySelector("#paddle1");
 let position = container.offsetHeight / 2;
 let direction = 0;
 
-document.onkeydown = (event) => {
-  console.log("keydown", event.code);
-  switch (event.code) {
-    case "ArrowDown":
-      direction = 1;
-      break;
-    case "ArrowUp":
-      direction = -1;
-      break;
-  }
-};
-
-document.onkeyup = (event) => {
-  console.log("keyup", event.code);
-  switch (event.code) {
-    case "ArrowDown":
-      if (direction == 1) direction = 0;
-      break;
-    case "ArrowUp":
-      if (direction == -1) direction = 0;
-      break;
-  }
-};
-
-//------------------paddle 2-----------------------------------------
+//------------------paddles-----------------------------------------
 
 const paddle2 = document.querySelector("#paddle2");
 
@@ -39,17 +15,18 @@ let direction2 = 0;
 document.onkeydown = (event) => {
   console.log("keydown", event.code);
   switch (event.code) {
-    case "KeyS":
-      direction2 = 1;
-      break;
     case "KeyW":
+      direction = -1;
+      break;
+    case "KeyS":
+      direction = 1;
+      break;
+
+    case "ArrowUp":
       direction2 = -1;
       break;
     case "ArrowDown":
-      direction = 1;
-      break;
-    case "ArrowUp":
-      direction = -1;
+      direction2 = 1;
       break;
   }
 };
@@ -57,17 +34,18 @@ document.onkeydown = (event) => {
 document.onkeyup = (event) => {
   console.log("keyup", event.code);
   switch (event.code) {
-    case "KeyS":
+    case "ArrowUp":
+      if (direction2 == -1) direction2 = 0;
+      break;
+
+    case "ArrowDown":
       if (direction2 == 1) direction2 = 0;
       break;
     case "KeyW":
-      if (direction2 == -1) direction2 = 0;
-      break;
-    case "ArrowDown":
-      if (direction == 1) direction = 0;
-      break;
-    case "ArrowUp":
       if (direction == -1) direction = 0;
+      break;
+    case "KeyS":
+      if (direction == 1) direction = 0;
       break;
   }
 };
