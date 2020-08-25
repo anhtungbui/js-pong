@@ -2,8 +2,6 @@
 
 The classic Pong game built with vanilla JS 🏓
 
-# Live Demo
-https://anhtungbui.github.io/js-pong/
 
 # Contributors
 + Nisha Shukla
