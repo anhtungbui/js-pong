@@ -5,6 +5,7 @@ const startBtn = document.getElementById("start-btn");
 const gameContainer = document.getElementById("container");
 const extra = document.getElementById("extra");
 let bgm = document.getElementById("bgm");
+
 //----------------------paddle 1-------------------------------------
 
 const paddle = document.querySelector("#paddle1");
@@ -155,8 +156,26 @@ function move() {
 
     if (collides) {
       //------sound effect with paddles and boundaries-----------------
+
       pop.play();
       movementX *= 1.05;
+
+      let ballCenterY = 10 + y;
+      let paddleCenterY = 70 + p.offsetTop;
+      let distanceY = ballCenterY + paddleCenterY;
+
+      if (distanceY > 10) {
+        // this is for the bottom side of the paddle
+        // movementY += -2 * movementY;
+
+        if (movementY < 0) {
+          movementY *= -1;
+        }
+      } else if (distanceY < -10) {
+        movementY *= -1;
+        console.log("hi");
+      }
+
       if (p === paddle) {
         movementX = Math.abs(movementX);
       } else {
