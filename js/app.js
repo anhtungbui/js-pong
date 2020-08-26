@@ -40,7 +40,7 @@ document.onkeydown = (event) => {
 };
 
 document.onkeyup = (event) => {
-  console.log("keyup", event.code);
+  //console.log("keyup", event.code);
   switch (event.code) {
     case "ArrowUp":
       if (direction2 == -1) direction2 = 0;
@@ -157,24 +157,16 @@ function move() {
     if (collides) {
       //------sound effect with paddles and boundaries-----------------
 
+      const reflectionFactor = -2 * (distanceY / 70) + 1;
+
       pop.play();
       movementX *= 1.05;
 
       let ballCenterY = 10 + y;
       let paddleCenterY = 70 + p.offsetTop;
-      let distanceY = ballCenterY + paddleCenterY;
+      let distanceY = Math.abs(ballCenterY - paddleCenterY);
 
-      if (distanceY > 10) {
-        // this is for the bottom side of the paddle
-        // movementY += -2 * movementY;
-
-        if (movementY < 0) {
-          movementY *= -1;
-        }
-      } else if (distanceY < -10) {
-        movementY *= -1;
-        console.log("hi");
-      }
+      movementY += reflectionFactor;
 
       if (p === paddle) {
         movementX = Math.abs(movementX);
