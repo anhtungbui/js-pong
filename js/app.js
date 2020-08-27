@@ -157,14 +157,13 @@ function move() {
     if (collides) {
       //------sound effect with paddles and boundaries-----------------
 
-      const reflectionFactor = -2 * (distanceY / 70) + 1;
-
       pop.play();
       movementX *= 1.05;
 
       let ballCenterY = 10 + y;
       let paddleCenterY = 70 + p.offsetTop;
       let distanceY = Math.abs(ballCenterY - paddleCenterY);
+      const reflectionFactor = -2 * (distanceY / 70) + 1;
 
       movementY += reflectionFactor;
 
